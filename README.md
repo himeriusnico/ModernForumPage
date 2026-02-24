@@ -1,59 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ModernForumPage
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, full-stack forum web application inspired by Reddit and Stack Overflow. Built with **Laravel**, **Inertia.js**, and **Vue 3** for a seamless single-page application experience — no full page reloads required.
 
-## About Laravel
+## ✨ Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- 📋 **Thread & Post Management** — Create, read, update and delete forum threads and replies
+- 🗂️ **Categories & Tags** — Organise discussions into topics and tag them for easy discovery
+- 🔼 **Upvoting & Downvoting** — Community-driven content ranking (Reddit/Stack Overflow style)
+- 💬 **Nested Comments** — Threaded reply support for structured conversations
+- 🔍 **Search** — Full-text search across threads and posts
+- 🔐 **Authentication** — Secure registration, login, and profile management
+- 👤 **User Profiles** — View activity history, reputation, and badges
+- 📱 **Responsive Design** — Mobile-first layout powered by Tailwind CSS and Bootstrap 5
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Layer | Technology |
+|---|---|
+| Backend | [Laravel 12](https://laravel.com) (PHP 8.2+) |
+| Frontend | [Vue 3](https://vuejs.org) (Composition API) |
+| SPA Bridge | [Inertia.js](https://inertiajs.com) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com) + [Bootstrap 5](https://getbootstrap.com) |
+| Build Tool | [Vite](https://vitejs.dev) |
+| Database | MySQL / SQLite (configurable) |
 
-## Learning Laravel
+## ⚙️ Requirements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP 8.2+
+- Composer
+- Node.js 18+ and npm
+- A supported database (MySQL, PostgreSQL, or SQLite)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Installation
 
-## Laravel Sponsors
+1. **Clone the repository**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+   ```bash
+   git clone https://github.com/himeriusnico/ModernForumPage.git
+   cd ModernForumPage
+   ```
 
-### Premium Partners
+2. **Install PHP dependencies**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+   ```bash
+   composer install
+   ```
 
-## Contributing
+3. **Install Node dependencies**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```bash
+   npm install
+   ```
 
-## Code of Conduct
+4. **Set up your environment file**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+5. **Configure your database** in `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=modern_forum
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-## License
+6. **Run migrations (and optional seeders)**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   php artisan migrate
+   # php artisan db:seed   # optional: seed with sample data
+   ```
+
+7. **Build frontend assets**
+
+   ```bash
+   npm run build
+   ```
+
+8. **Start the development server**
+
+   ```bash
+   composer run dev
+   ```
+
+   This starts the Laravel server, queue worker, and Vite dev server concurrently.
+
+   The application will be available at `http://localhost:8000`.
+
+## 🧪 Running Tests
+
+```bash
+composer run test
+```
+
+Or directly with PHPUnit:
+
+```bash
+php artisan test
+```
+
+## 📁 Project Structure
+
+```
+ModernForumPage/
+├── app/
+│   ├── Http/Controllers/   # Laravel controllers
+│   └── Models/             # Eloquent models
+├── database/
+│   ├── migrations/         # Database schema
+│   └── seeders/            # Sample data seeders
+├── resources/
+│   ├── js/                 # Vue components & Inertia pages
+│   └── scss/               # Global styles
+├── routes/
+│   └── web.php             # Application routes
+└── vite.config.js          # Vite build configuration
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add my feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
